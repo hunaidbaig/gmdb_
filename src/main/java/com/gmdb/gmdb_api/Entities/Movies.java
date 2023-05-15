@@ -1,29 +1,26 @@
 package com.gmdb.gmdb_api.Entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "movies")
-public class Movie {
+@NoArgsConstructor
+public class Movies {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    @Column(name="movie_id")
-    private Long movie_id;
+    private Integer movie_id;
 
     private String title;
-    private int year;
+    private Integer year;
     private String gener;
-    private int runtime;
+    private Integer runtime;
 }

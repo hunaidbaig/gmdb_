@@ -25,7 +25,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
-    private Movie movie;
+    private Movies movie;
 
     @ManyToOne
     @JoinColumn(name = "reviewer_id")
