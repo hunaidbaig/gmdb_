@@ -1,6 +1,7 @@
 package com.gmdb.gmdb_api.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,8 @@ public class MoviesService implements MovieServiceRepo {
         this.movieRepo.save(movie);
     }
     @Override
-    public Movies getMovie(Integer id) {
-        return this.movieRepo.getReferenceById(id);
+    public Optional<Movies> getMovie(Integer id) {
+        return this.movieRepo.findById(id);
     }
 
     @Override

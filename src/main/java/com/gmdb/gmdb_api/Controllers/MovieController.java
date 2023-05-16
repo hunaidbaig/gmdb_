@@ -1,8 +1,10 @@
 package com.gmdb.gmdb_api.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +23,9 @@ public class MovieController {
     private MoviesService movieService;
 
     @PostMapping("/save")
-    public String insertMovie(@RequestBody Movies movie){
+    public ResponseEntity<Movies> insertMovie(@RequestBody Movies movie){
         this.movieService.insertMovie(movie);
-        return "Movie inserted";
+        return ResponseEntity.ok(movie);
     }
 
     @GetMapping("")
@@ -32,7 +34,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public Movies getMovie(@PathVariable Integer id){
+    public Optional<Movies> getMovie(@PathVariable Integer id){
         return this.movieService.getMovie(id);
     }
 
