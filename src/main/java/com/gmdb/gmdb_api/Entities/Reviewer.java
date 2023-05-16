@@ -2,34 +2,38 @@ package com.gmdb.gmdb_api.Entities;
 
 import java.time.LocalDate;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "reviewers")
+@NoArgsConstructor
 public class Reviewer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reviewer_id")
-    private Long reviewerId;
+    private Integer reviewerId;
 
     @Column(name = "username")
     private String username;
 
-    @Column(name = "date_joined")
     private LocalDate dateJoined;
-
-    @Column(name = "num_reviews")
     private Integer numReviews;
+
+    @OneToMany(mappedBy = "reviewer", cascade = CascadeType.PERSIST)
+    private List<Review> reviews;
 
 }
