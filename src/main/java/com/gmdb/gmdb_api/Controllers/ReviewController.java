@@ -45,4 +45,9 @@ public class ReviewController {
     public List<Review> getAllReview(){
         return this.reviewRepository.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Review getReview(Integer id){
+        return this.reviewRepository.getReferenceById(id);
+    }
 }

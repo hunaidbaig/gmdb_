@@ -19,6 +19,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
+    public Review(Movies movies, String review_text, LocalDateTime last_modified) {
+        this.movies = movies;
+        this.review_text = review_text;
+        this.last_modified = last_modified;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer reviewId;

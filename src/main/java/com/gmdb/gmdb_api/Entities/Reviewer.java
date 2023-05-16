@@ -36,4 +36,10 @@ public class Reviewer {
     @OneToMany(mappedBy = "reviewer", cascade = CascadeType.PERSIST)
     private List<Review> reviews;
 
+    public Reviewer(String username, LocalDate dateJoined, Integer numReviews) {
+        this.username = username;
+        this.dateJoined = dateJoined;
+        this.numReviews = numReviews;
+    }
+
 }
