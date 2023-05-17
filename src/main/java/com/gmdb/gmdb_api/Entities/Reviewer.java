@@ -41,6 +41,11 @@ public class Reviewer {
     private List<Review> reviews;
 
 
+    public Reviewer(Integer reviewerId, String username) {
+        this.reviewerId = reviewerId;
+        this.username = username;
+    }
+
     public Reviewer(String username) {
         this.username = username;
         this.dateJoined = LocalDate.now();

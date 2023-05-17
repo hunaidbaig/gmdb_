@@ -30,15 +30,7 @@ public class ReviewController {
 
     @PostMapping("/save")
     public Review insertReview(@RequestBody Review review){
-            Movies movie = movieRepository.getReferenceById(152);
-            Reviewer reviewer = reviewerRepository.getReferenceById(3);
-            Review newReview = new Review();
-            newReview.setMovies(movie);
-            newReview.setReviewer(reviewer);
-            newReview.setReview_text(review.getReview_text());
-            newReview.setLast_modified(review.getLast_modified());;
-            reviewRepository.save(newReview);
-        return newReview;
+        return this.reviewRepository.save(review);
     }
 
     @GetMapping("")
