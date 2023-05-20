@@ -52,6 +52,13 @@ public class Reviewer {
         this.numReviews = 0;
     }
 
+    public Reviewer(Integer reviewerId,String username, LocalDate dateJoined, Integer numReviews) {
+        this.reviewerId = reviewerId;
+        this.username = username;
+        this.dateJoined = dateJoined;
+        this.numReviews = numReviews;
+    }
+
     public Reviewer(String username, LocalDate dateJoined, Integer numReviews) {
         this.username = username;
         this.dateJoined = dateJoined;

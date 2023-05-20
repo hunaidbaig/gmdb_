@@ -43,6 +43,11 @@ public class Review {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate last_modified;
     
+    public Review(Movies movies, Reviewer reviewer, String review_text) {
+        this.movies = movies;
+        this.reviewer = reviewer;
+        this.review_text = review_text;
+    }
     public Review(Movies movies, String review_text, LocalDate date) {
         this.movies = movies;
         this.review_text = review_text;
